@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMS Pathways · Duluth, MN — A Field Guide to EMT &amp; Paramedic Programs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2EBDD;
+  --paper-2:#EFE6D2;
+  --ink:#1A1714;
+  --ink-soft:#3A332C;
+  --rule:#1A171420;
+  --rust:#A93826;
+  --rust-deep:#7A2418;
+  --moss:#4D5A37;
+  --gold:#B8862C;
+  --slate:#5C6772;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(169,56,38,0.04) 0%, transparent 35%),
+    radial-gradient(circle at 85% 30%, rgba(77,90,55,0.04) 0%, transparent 40%);
+}
+/* Grain overlay */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity:0.06;
+  pointer-events:none;
+  z-index:1;
+  mix-blend-mode:multiply;
+}
+.serif{font-family:'Fraunces',serif;font-optical-sizing:auto}
+.mono{font-family:'JetBrains Mono',monospace;letter-spacing:0.02em}
+
+/* NAV */
+nav.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(242,235,221,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+  padding:14px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+nav .brand{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-style:italic;
+  font-size:1.1rem;
+  letter-spacing:-0.01em;
+}
+nav .brand span{color:var(--rust)}
+nav .links{display:flex;gap:6px;flex-wrap:wrap}
+nav .links a{
+  text-decoration:none;color:var(--ink-soft);
+  font-size:0.78rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:0.08em;
+  padding:6px 10px;border-radius:3px;
+  transition:all 0.2s ease;
+}
+nav .links a:hover{background:var(--ink);color:var(--paper)}
+
+/* HERO */
+.hero{
+  padding:90px 32px 60px;
+  max-width:1300px;margin:0 auto;
+  position:relative;z-index:2;
+}
+.hero .meta{
+  display:flex;align-items:center;gap:16px;
+  font-size:0.72rem;
+  text-transform:uppercase;letter-spacing:0.18em;
+  color:var(--rust);
+  font-weight:600;
+  margin-bottom:32px;
+}
+.hero .meta::before{
+  content:"";width:60px;height:1px;background:var(--rust);
+}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(3rem, 8vw, 6.5rem);
+  font-weight:300;
+  line-height:0.95;
+  letter-spacing:-0.03em;
+  margin-bottom:28px;
+}
+.hero h1 em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--rust);
+}
+.hero .lede{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.15rem, 2vw, 1.5rem);
+  font-weight:300;
+  max-width:780px;
+  line-height:1.45;
+  color:var(--ink-soft);
+  margin-bottom:40px;
+}
+.hero .stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:24px;border-top:1px solid var(--rule);
+  padding-top:28px;max-width:900px;
+}
+.hero .stats .stat .num{
+  font-family:'Fraunces',serif;
+  font-size:2.4rem;font-weight:400;
+  display:block;line-height:1;
+  margin-bottom:6px;
+}
+.hero .stats .stat .num em{font-style:italic;color:var(--rust)}
+.hero .stats .stat .label{
+  font-size:0.7rem;
+  text-transform:uppercase;
+  letter-spacing:0.12em;color:var(--ink-soft);
+}
+
+/* SECTION HEADER */
+.section-head{
+  max-width:1300px;margin:80px auto 40px;padding:0 32px;
+  position:relative;z-index:2;
+}
+.section-head .kicker{
+  font-size:0.72rem;
+  text-transform:uppercase;letter-spacing:0.2em;
+  color:var(--rust);font-weight:600;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-head .kicker::before{
+  content:"§";font-family:'Fraunces',serif;
+  font-size:1.4rem;font-weight:300;
+  color:var(--rust);
+}
+.section-head h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2rem, 4.5vw, 3.6rem);
+  font-weight:400;line-height:1;
+  letter-spacing:-0.02em;
+  max-width:900px;
+}
+.section-head h2 em{font-style:italic;font-weight:300;color:var(--rust-deep)}
+.section-head p.sub{
+  margin-top:18px;max-width:720px;
+  font-size:1rem;color:var(--ink-soft);
+}
+
+/* CONTAINER */
+.container{
+  max-width:1300px;margin:0 auto;padding:0 32px;
+  position:relative;z-index:2;
+}
+
+/* COMPARISON TABLE */
+.compare{
+  margin:0 auto 80px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  overflow-x:auto;
+}
+.compare table{
+  width:100%;border-collapse:collapse;
+  font-size:0.86rem;
+  min-width:880px;
+}
+.compare th,.compare td{
+  padding:18px 16px;text-align:left;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+.compare th{
+  font-family:'Fraunces',serif;
+  font-weight:500;font-size:0.95rem;
+  background:var(--ink);color:var(--paper);
+  font-style:italic;
+}
+.compare th:first-child{font-style:normal;font-weight:600}
+.compare tr:last-child td{border-bottom:none}
+.compare td.school{
+  font-family:'Fraunces',serif;
+  font-weight:500;font-size:1.05rem;
+  width:240px;
+  border-right:1px solid var(--rule);
+  background:rgba(0,0,0,0.02);
+}
+.compare td.school small{
+  display:block;font-family:'Manrope',sans-serif;
+  font-size:0.7rem;color:var(--ink-soft);
+  text-transform:uppercase;letter-spacing:0.08em;
+  margin-top:4px;font-weight:500;
+}
+.compare .badge{
+  display:inline-block;
+  padding:3px 8px;border-radius:2px;
+  font-size:0.65rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+.b-emt{background:var(--moss);color:var(--paper)}
+.b-medic{background:var(--rust);color:var(--paper)}
+.b-both{background:var(--gold);color:var(--ink)}
+.b-no{background:transparent;color:var(--slate);border:1px dashed var(--slate)}
+
+/* PROGRAMS */
+.program{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:48px;
+  padding:64px 0;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.program:last-child{border-bottom:none}
+.program .left{
+  position:sticky;top:90px;
+  align-self:start;
+  height:fit-content;
+}
+.program .num{
+  font-family:'Fraunces',serif;
+  font-size:5rem;font-weight:300;
+  font-style:italic;
+  line-height:1;color:var(--rust);
+  margin-bottom:12px;
+  display:block;
+}
+.program h3{
+  font-family:'Fraunces',serif;
+  font-size:2rem;font-weight:500;
+  line-height:1.05;letter-spacing:-0.02em;
+  margin-bottom:14px;
+}
+.program .school-meta{
+  font-size:0.78rem;color:var(--ink-soft);
+  text-transform:uppercase;letter-spacing:0.1em;
+  margin-bottom:18px;line-height:1.5;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+}
+.offers{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.program .right{padding-top:8px}
+
+/* DETAIL GRID */
+.detail-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+  margin:24px 0 32px;
+  padding:24px;
+  background:var(--paper-2);
+  border-left:3px solid var(--rust);
+}
+.detail-grid .item .lab{
+  font-size:0.68rem;
+  text-transform:uppercase;letter-spacing:0.14em;
+  color:var(--rust);font-weight:600;
+  margin-bottom:6px;
+}
+.detail-grid .item .val{
+  font-family:'Fraunces',serif;
+  font-size:1.15rem;font-weight:500;
+  line-height:1.25;
+}
+.detail-grid .item .val small{
+  display:block;
+  font-family:'Manrope',sans-serif;
+  font-weight:400;font-size:0.78rem;
+  color:var(--ink-soft);margin-top:4px;
+}
+
+/* PROSE */
+.prose p{margin-bottom:14px;font-size:0.95rem;max-width:720px}
+.prose h4{
+  font-family:'Fraunces',serif;
+  font-size:1.2rem;font-weight:500;
+  font-style:italic;
+  margin:28px 0 12px;
+  color:var(--rust-deep);
+}
+.prose ul{
+  list-style:none;padding:0;
+  max-width:720px;
+}
+.prose ul li{
+  padding:6px 0 6px 24px;
+  position:relative;font-size:0.92rem;
+  border-bottom:1px dotted var(--rule);
+}
+.prose ul li::before{
+  content:"→";
+  position:absolute;left:0;top:6px;
+  color:var(--rust);font-weight:700;
+}
+.prose ul li:last-child{border-bottom:none}
+.prose .callout{
+  background:var(--ink);color:var(--paper);
+  padding:20px 24px;margin:24px 0;
+  font-size:0.9rem;
+  border-left:4px solid var(--gold);
+}
+.prose .callout strong{color:var(--gold)}
+.prose a{color:var(--rust);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.prose a:hover{color:var(--rust-deep)}
+
+.contact-block{
+  margin-top:24px;padding:18px 24px;
+  background:rgba(184,134,44,0.1);
+  border:1px dashed var(--gold);
+  font-size:0.85rem;
+}
+.contact-block strong{
+  font-family:'Fraunces',serif;
+  font-style:italic;color:var(--rust-deep);
+  display:block;margin-bottom:6px;
+}
+
+/* ROADMAP */
+.roadmap{
+  background:var(--ink);color:var(--paper);
+  padding:80px 32px;margin-top:80px;
+  position:relative;z-index:2;
+}
+.roadmap .container h2{color:var(--paper)}
+.roadmap .section-head{margin-top:0;padding:0}
+.roadmap .section-head .kicker{color:var(--gold)}
+.roadmap .section-head .kicker::before{color:var(--gold)}
+.roadmap .section-head h2 em{color:var(--gold)}
+.roadmap .section-head p.sub{color:var(--paper);opacity:0.75}
+.path-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:32px;margin-top:48px;
+}
+.path-card{
+  border:1px solid rgba(242,235,221,0.2);
+  padding:28px 24px;
+  background:rgba(242,235,221,0.03);
+}
+.path-card .step{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:0.85rem;color:var(--gold);
+  margin-bottom:12px;letter-spacing:0.05em;
+}
+.path-card h4{
+  font-family:'Fraunces',serif;font-weight:500;
+  font-size:1.4rem;margin-bottom:12px;
+}
+.path-card p{font-size:0.88rem;opacity:0.85;line-height:1.6}
+.path-arrow{
+  text-align:center;
+  font-family:'Fraunces',serif;
+  font-size:2rem;color:var(--gold);
+  font-style:italic;
+  display:none;
+}
+
+/* FOOTER */
+footer{
+  padding:60px 32px 40px;
+  border-top:1px solid var(--rule);
+  margin-top:60px;
+  position:relative;z-index:2;
+  font-size:0.82rem;
+}
+footer .container{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+footer h5{
+  font-family:'Fraunces',serif;
+  font-style:italic;font-weight:500;
+  font-size:1rem;margin-bottom:12px;
+  color:var(--rust);
+}
+footer ul{list-style:none}
+footer ul li{padding:4px 0;color:var(--ink-soft)}
+footer .colophon{
+  margin-top:40px;padding-top:20px;
+  border-top:1px solid var(--rule);
+  font-size:0.72rem;color:var(--slate);
+  text-transform:uppercase;letter-spacing:0.08em;
+}
+
+/* RESPONSIVE */
+@media (max-width:880px){
+  .program{grid-template-columns:1fr;gap:24px}
+  .program .left{position:static}
+  .program .num{font-size:3.5rem}
+  .hero{padding:60px 24px 40px}
+  nav.topbar{padding:12px 16px}
+  nav .links{justify-content:flex-start}
+  nav .links a{font-size:0.7rem;padding:5px 8px}
+  .container,.section-head{padding-left:20px;padding-right:20px}
+  footer .container{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="brand">EMS Pathways <span>·</span> Duluth</div>
+  <div class="links">
+    <a href="#overview">Overview</a>
+    <a href="#compare">Compare</a>
+    <a href="#lsc">Lake Superior</a>
+    <a href="#mayo-paramedic">Mayo Paramedic</a>
+    <a href="#mayo-emt">Mayo EMT</a>
+    <a href="#northwood">Northwood Tech</a>
+    <a href="#mn-north">MN North</a>
+    <a href="#path">Career Path</a>
+    <a href="#prereqs">Prerequisites</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="overview">
+  <div class="meta">A Field Guide · Updated Spring 2026</div>
+  <h1>Where Duluth<br>trains its <em>first responders.</em></h1>
+  <p class="lede">A detailed comparison of every Emergency Medical Technician (EMT-Basic) and Paramedic program within practical reach of Duluth, Minnesota — with costs, lengths, weekly hours, prerequisites, and how the puzzle pieces fit together.</p>
+  <div class="stats">
+    <div class="stat"><span class="num"><em>5</em></span><span class="label">Programs profiled</span></div>
+    <div class="stat"><span class="num">2</span><span class="label">EMT-Basic options in Duluth proper</span></div>
+    <div class="stat"><span class="num">1</span><span class="label">Paramedic program in Duluth</span></div>
+    <div class="stat"><span class="num"><em>~$46K</em></span><span class="label">MN median EMT salary</span></div>
+  </div>
+</section>
+
+<!-- HOW TO READ THIS -->
+<div class="section-head">
+  <div class="kicker">How To Read This</div>
+  <h2>One certification, <em>two stories.</em></h2>
+  <p class="sub">In Minnesota and Wisconsin, EMT-Basic is a short, single-semester gateway. The Paramedic credential — a different animal entirely — is a 16-to-20 month commitment that <strong>requires you to already hold an EMT license before you start</strong>. No school in this guide accepts you straight into Paramedic without the EMT step first. Plan accordingly.</p>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="container" id="compare">
+  <div class="compare">
+    <table>
+      <thead>
+        <tr>
+          <th>Provider</th>
+          <th>EMT-Basic</th>
+          <th>Paramedic</th>
+          <th>Length</th>
+          <th>Approx. Cost</th>
+          <th>Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="school">Lake Superior College<small>Duluth, MN — in town</small></td>
+          <td><span class="badge b-emt">Yes</span></td>
+          <td><span class="badge b-no">No</span></td>
+          <td>1 semester (~16 wks)</td>
+          <td>~$1,800 + fees</td>
+          <td>On-campus at ERTC, Gary New Duluth</td>
+        </tr>
+        <tr>
+          <td class="school">Mayo Clinic School of Health Sciences<small>Duluth Satellite Site</small></td>
+          <td><span class="badge b-no">No</span></td>
+          <td><span class="badge b-medic">Yes</span></td>
+          <td>20 months</td>
+          <td>$12,600 (tuition + fees)</td>
+          <td>Hybrid — local lectures + virtual link to Rochester</td>
+        </tr>
+        <tr>
+          <td class="school">Mayo Clinic Ambulance Service<small>Duluth — direct training</small></td>
+          <td><span class="badge b-emt">Yes</span></td>
+          <td><span class="badge b-no">No</span></td>
+          <td>Varies (incl. 10-week paid track)</td>
+          <td>Often free / paid as employee</td>
+          <td>Classroom + ride-alongs</td>
+        </tr>
+        <tr>
+          <td class="school">Northwood Technical College<small>Superior, WI — across the bridge</small></td>
+          <td><span class="badge b-both">Both</span></td>
+          <td><span class="badge b-both">Both</span></td>
+          <td>EMT: 180 hrs · Paramedic: 16 mo</td>
+          <td>EMT ~$1,150 · Paramedic ~$5,000+</td>
+          <td>Hybrid — online lectures + Rice Lake skills labs</td>
+        </tr>
+        <tr>
+          <td class="school">Minnesota North College<small>Mesabi Range / Vermilion / Itasca</small></td>
+          <td><span class="badge b-emt">Yes</span></td>
+          <td><span class="badge b-no">No</span></td>
+          <td>1 semester (8 credits)</td>
+          <td>~$1,600 (resident rate)</td>
+          <td>On-campus, ~50–80 mi from Duluth</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PROGRAM 1 — LSC -->
+<div class="container">
+
+<article class="program" id="lsc">
+  <div class="left">
+    <span class="num">01</span>
+    <h3>Lake Superior College</h3>
+    <div class="school-meta">2101 Trinity Rd · Duluth · ERTC, Gary New Duluth · (218) 733-7601</div>
+    <div class="offers">
+      <span class="badge b-emt">EMT-Basic</span>
+      <span class="badge b-no">No Paramedic</span>
+    </div>
+  </div>
+  <div class="right prose">
+    <p>The most prominent EMT-Basic option in Duluth itself. <a href="https://www.lsc.edu/degrees/emergency-medical-technician-certificate/" target="_blank">Lake Superior College</a> runs a single 9-credit certificate (<span class="mono">FIRE 2486</span>) at its Emergency Response Training Center in Gary New Duluth — a facility shared with firefighting and rescue training, complete with live-fire and accident-staging props. Students often train alongside fire and public-safety crews.</p>
+
+    <div class="detail-grid">
+      <div class="item"><div class="lab">Credential</div><div class="val">Certificate (9 credits)<small>Single course, FIRE 2486</small></div></div>
+      <div class="item"><div class="lab">Length</div><div class="val">One semester<small>Roughly 16 weeks, fall or spring start</small></div></div>
+      <div class="item"><div class="lab">Approx. Tuition</div><div class="val">~$1,800–$2,200<small>9 credits at LSC's MN-resident rate (LSC has the second-lowest tuition in the MN State system)</small></div></div>
+      <div class="item"><div class="lab">Format</div><div class="val">On-campus<small>Lectures &amp; skills at ERTC; clinical ride-alongs separate</small></div></div>
+    </div>
+
+    <h4>Who it's for &amp; what's required</h4>
+    <ul>
+      <li>Must be at least <strong>16 years old</strong> to take the course</li>
+      <li>Must be at least <strong>18 and felony-free</strong> to earn national certification</li>
+      <li>Current <strong>NetStudy background check</strong> required to participate in clinicals</li>
+      <li>No prior EMS experience needed — this is the entry point</li>
+      <li>Apply through LSC general admissions; this is a "Program with Special Entry Requirements"</li>
+    </ul>
+
+    <h4>Typical weekly load</h4>
+    <p>EMT-Basic at colleges like LSC typically runs <strong>9–12 contact hours per week</strong> across two or three evenings (lecture + lab), plus required outside-of-class clinical ride-along hours scheduled with affiliated ambulance services. Plan for an additional 6–10 hours of study weekly.</p>
+
+    <h4>Why pick LSC</h4>
+    <ul>
+      <li><strong>In Duluth proper</strong> — no commute to Superior or Hibbing</li>
+      <li><strong>Cheap</strong> — among the lowest tuition in the Minnesota State system</li>
+      <li><strong>Realistic facility</strong> — ERTC is regionally known for first-responder training</li>
+      <li>Stackable into LSC's <em>Fire Medic</em> and <em>Fire Technology</em> AAS pathways</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Limitation</strong> — LSC does <em>not</em> currently offer a Paramedic program. After completing the EMT certificate at LSC, you'd transfer to Mayo Clinic (Duluth satellite) or Northwood Tech (Superior) for medic training.
+    </div>
+  </div>
+</article>
+
+<!-- PROGRAM 2 — Mayo Paramedic -->
+<article class="program" id="mayo-paramedic">
+  <div class="left">
+    <span class="num">02</span>
+    <h3>Mayo Clinic School of Health Sciences <em style="font-style:italic;font-weight:400;">— Paramedic</em></h3>
+    <div class="school-meta">Duluth Satellite Site · Hosted at the main MCAS ambulance station, Duluth</div>
+    <div class="offers">
+      <span class="badge b-no">No EMT-Basic</span>
+      <span class="badge b-medic">Paramedic</span>
+    </div>
+  </div>
+  <div class="right prose">
+    <p>This is the headline Paramedic option in town. <a href="https://college.mayo.edu/academics/health-sciences-education/emergency-medicine-paramedic-program-minnesota/" target="_blank">Mayo Clinic's Emergency Medicine Paramedic Program</a> is a 20-month program coordinated out of Rochester, with a fully staffed Duluth satellite site. A Duluth-specific instructor runs lectures and skills in-person at the local ambulance station, while the Rochester cohort is brought in virtually for shared lectures.</p>
+
+    <div class="detail-grid">
+      <div class="item"><div class="lab">Credential</div><div class="val">Certificate (40 credits)<small>Optional A.S. degree track via Rochester Community &amp; Technical College adds 32–35 credits</small></div></div>
+      <div class="item"><div class="lab">Length</div><div class="val">20 months<small>One cohort per year, starts each August</small></div></div>
+      <div class="item"><div class="lab">Total Cost</div><div class="val">$12,600<small>Tuition is $315/credit (25 billable credits direct to Mayo). Estimate excludes books, uniforms, housing, transportation</small></div></div>
+      <div class="item"><div class="lab">Cohort Size</div><div class="val">Up to 20<small>Across all three sites combined — Duluth, Rochester, Albert Lea</small></div></div>
+      <div class="item"><div class="lab">Format</div><div class="val">Hybrid<small>Days vary; learning schedules include 8- and 12-hour days depending on classroom, lab, clinical, or field rotation</small></div></div>
+      <div class="item"><div class="lab">Application</div><div class="val">Jan 1 – Apr 29<small>Class begins August. Interviews mid-May. Highly competitive.</small></div></div>
+    </div>
+
+    <h4>Prerequisites — every one is mandatory</h4>
+    <ul>
+      <li>High school diploma or GED</li>
+      <li>At least <strong>18 years old</strong> by program start</li>
+      <li>Current <strong>NREMT EMT-Basic certification</strong> (you must already be a certified EMT)</li>
+      <li>Current <strong>AHA Basic Life Support (BLS)</strong> provider card</li>
+      <li>Current valid driver's license</li>
+      <li>U.S. citizen or permanent resident (Mayo does <em>not</em> sponsor visas for this program)</li>
+      <li>One college-level course completed before the program — Mayo recommends <span class="mono">HCOP 1610: Medical Terminology</span> at RCTC</li>
+    </ul>
+
+    <h4>Application materials</h4>
+    <ul>
+      <li>CV / résumé</li>
+      <li>AHA BLS card, NREMT EMT card, MN EMT (EMSRB) provider card</li>
+      <li>500-word essay on motivation for paramedicine</li>
+      <li>Two recommendations — one general (teacher, supervisor), one professional (preferably your EMS supervisor)</li>
+      <li>Unofficial transcripts at application; official transcripts upon admission</li>
+    </ul>
+
+    <h4>What "Duluth site" actually means</h4>
+    <p>Most clinical and field shifts (ambulance ride time) happen in Duluth or surrounding areas. However, <strong>cadaver labs, AHA courses, and select specialty clinicals require travel to Rochester</strong>. Plan and budget for that. Duluth students who choose the A.S. degree track must additionally enroll at Rochester Community &amp; Technical College for online general-education courses.</p>
+
+    <h4>Typical weekly load</h4>
+    <p>Mayo describes its weekly schedule as variable — <strong>8- and 12-hour days</strong>, with the days per week shifting based on whether the week is dominated by classroom lecture, simulation lab, hospital clinical, or ambulance field internship. Expect this to function essentially as a full-time educational commitment; outside employment is permitted only if it does not conflict with program responsibilities. In total, students cover a 40-credit didactic load plus extensive clinical and field internship hours over 20 months.</p>
+
+    <div class="contact-block">
+      <strong>Apply &amp; learn more</strong>
+      Online application opens annually January 1. Direct contact through Mayo Clinic's admissions inquiry form, or through the program overview page linked above. Note the program is approved by the Minnesota EMSRB for paramedic instruction.
+    </div>
+  </div>
+</article>
+
+<!-- PROGRAM 3 — Mayo Ambulance EMT -->
+<article class="program" id="mayo-emt">
+  <div class="left">
+    <span class="num">03</span>
+    <h3>Mayo Clinic Ambulance Service <em style="font-style:italic;font-weight:400;">— EMT-Basic</em></h3>
+    <div class="school-meta">Duluth station · Direct ambulance-service training · AMBSVCEducation@mayo.edu · 507-538-7159</div>
+    <div class="offers">
+      <span class="badge b-emt">EMT-Basic</span>
+      <span class="badge b-no">No Paramedic (see #02)</span>
+    </div>
+  </div>
+  <div class="right prose">
+    <p>Distinct from Mayo's Paramedic program — same parent organization, different pathway. <a href="https://www.mayoclinic.org/ambulance-service/emergency-medical-services-training" target="_blank">Mayo Clinic Ambulance Service</a> is licensed by the Minnesota EMSRB as an EMS training institution and runs initial EMT-Basic, EMT Refresher, and Emergency Medical Responder courses. It also hosts the <strong>EMT-in-Training Program</strong> — a paid, accelerated track piloted in Austin, MN in 2024 with plans to expand to other MCAS service areas (which include Duluth).</p>
+
+    <div class="detail-grid">
+      <div class="item"><div class="lab">Credential</div><div class="val">NREMT EMT-Basic eligibility<small>Industry training, not a college credential</small></div></div>
+      <div class="item"><div class="lab">EMT-in-Training Length</div><div class="val">10 weeks<small>5 days/week, ~320 total training hours</small></div></div>
+      <div class="item"><div class="lab">EMT-in-Training Cost</div><div class="val">Paid by Mayo<small>Course fees, textbooks, and a loaner laptop are covered. Trainees are paid as employees during training.</small></div></div>
+      <div class="item"><div class="lab">Format</div><div class="val">Classroom + Field<small>In-person lectures, demonstration videos, hands-on skills, supervised ride-alongs</small></div></div>
+    </div>
+
+    <h4>Two ways in</h4>
+    <ul>
+      <li><strong>Traditional EMT-Basic course</strong> — open enrollment, runs at MCAS training centers including Duluth. Contact <span class="mono">AMBSVCEducation@mayo.edu</span> for current schedules and tuition. Standard MN EMT-Basic course length is 130–160 hours over a semester.</li>
+      <li><strong>EMT-in-Training Program</strong> — Mayo's paid pipeline for career-changers with no prior EMS background. Trainees ride with a paramedic-EMT crew from week one (mostly observing), are CPR-certified and N-95 fit-tested up front, then move toward full EMT certification over ten weeks. Upon completion, graduates are eligible to apply for full-time EMT positions with Mayo Clinic Ambulance Service.</li>
+    </ul>
+
+    <h4>Typical weekly load — EMT-in-Training</h4>
+    <p>Five days per week, with daily shifts in the <strong>8–9 hour range</strong>. This is a full-time, paid commitment — not a side-of-the-desk course. Trainees alternate between classroom learning and ambulance ride-alongs as their skills accumulate.</p>
+
+    <div class="callout">
+      <strong>Why this matters</strong> — for Duluth-area career-changers without college aspirations, this is arguably the most accessible path: no tuition, immediate paycheck, and a guaranteed track to a Mayo employment interview. Availability of the EMT-in-Training cohort in Duluth specifically depends on local recruitment needs — check directly.
+    </div>
+  </div>
+</article>
+
+<!-- PROGRAM 4 — Northwood -->
+<article class="program" id="northwood">
+  <div class="left">
+    <span class="num">04</span>
+    <h3>Northwood Technical College</h3>
+    <div class="school-meta">600 N 21st St · Superior, WI 54880 · ~5–10 min drive across the Bong Bridge from Duluth</div>
+    <div class="offers">
+      <span class="badge b-both">EMT-Basic</span>
+      <span class="badge b-both">Advanced EMT</span>
+      <span class="badge b-both">Paramedic</span>
+    </div>
+  </div>
+  <div class="right prose">
+    <p>The only school in this guide that offers <strong>every level of EMS training under one roof</strong> — and the closest such option to Duluth. Northwood Tech (formerly WITC) is a Wisconsin technical college, but Minnesota residents pay the same in-state-equivalent tuition rate via WI/MN reciprocity. EMT classes happen at the Superior campus; Paramedic skills labs are held at Rice Lake (~2 hr drive), with lectures delivered live online via Microsoft Teams.</p>
+
+    <h4>EMT (Technical Diploma)</h4>
+    <div class="detail-grid">
+      <div class="item"><div class="lab">Length</div><div class="val">180 hours<small>One semester; offered fall and spring</small></div></div>
+      <div class="item"><div class="lab">Credits</div><div class="val">7 credits (2026–27)<small>Updating from prior credit count pending WTCS approval</small></div></div>
+      <div class="item"><div class="lab">Cost</div><div class="val">~$1,150 + supplies<small>$164.20 per credit, WI/MN resident rate</small></div></div>
+      <div class="item"><div class="lab">Campus</div><div class="val">Superior<small>Also Ashland, New Richmond, Rice Lake — Superior is closest to Duluth</small></div></div>
+    </div>
+    <ul>
+      <li>Must be 17 by first day of class (18 to apply for the WI EMT license)</li>
+      <li>WI Caregiver Background Check + immunizations required</li>
+      <li>10 patient contacts required after Training Center Permit issued</li>
+      <li>Designed to meet licensure requirements in <em>both Wisconsin and Minnesota</em></li>
+      <li>BLS CPR certification scheduled within the program — no need to bring it in</li>
+    </ul>
+
+    <h4>Advanced EMT (optional bridge)</h4>
+    <div class="detail-grid">
+      <div class="item"><div class="lab">Length</div><div class="val">232 hours<small>Less than 1 year</small></div></div>
+      <div class="item"><div class="lab">Credits</div><div class="val">4–5 credits<small>Updating to 5 credits / 232 hours for 2026–27</small></div></div>
+      <div class="item"><div class="lab">Cost</div><div class="val">~$685–$820<small>Plus a current WI EMT license required to enroll</small></div></div>
+      <div class="item"><div class="lab">Offered At</div><div class="val">New Richmond, Rice Lake<small>Not currently scheduled at Superior — verify with admissions</small></div></div>
+    </div>
+
+    <h4>EMT-Paramedic (Technical Diploma)</h4>
+    <div class="detail-grid">
+      <div class="item"><div class="lab">Length</div><div class="val">16 months<small>Includes summer-term clinicals</small></div></div>
+      <div class="item"><div class="lab">Cost</div><div class="val">~$5,000+<small>Approx. 30 credits at $164.20/credit; plus uniforms, books, exam fees</small></div></div>
+      <div class="item"><div class="lab">Lectures</div><div class="val">Online Live<small>Two evenings/week via Microsoft Teams to all campus locations</small></div></div>
+      <div class="item"><div class="lab">Skills Labs</div><div class="val">Every other Fri/Sat<small>On-site at Rice Lake campus per course schedule</small></div></div>
+      <div class="item"><div class="lab">Prerequisite</div><div class="val">EMT license<small>Current WI or MN EMT license required at start</small></div></div>
+      <div class="item"><div class="lab">Accreditation</div><div class="val">CAAHEP / CoAEMSP<small>Includes ACLS, PALS, and neonatal advanced life support competencies</small></div></div>
+    </div>
+
+    <h4>Paramedic Technician (Associate Degree, AAS)</h4>
+    <p>Layers general-education credits on top of the EMT-Paramedic technical diploma to reach a <strong>67-credit AAS</strong>, available 2 years part-time. Available at all four campuses including Superior. Per Northwood Tech's 2022–23 graduate survey, 83% of paramedic technician graduates were employed within six months. Total estimated cost approaches $11,000 in tuition before books and supplies.</p>
+
+    <h4>Typical weekly load</h4>
+    <ul>
+      <li><strong>EMT</strong> — typically two evenings per week of lecture/lab (~8–10 hours classroom contact) plus required clinical hours; expect 10–15 total hours per week.</li>
+      <li><strong>Paramedic</strong> — two evenings of online lecture (~6–8 hrs) + every-other-weekend skills (~12–16 hrs/lab weekend) + clinical &amp; field internship hours that scale up dramatically in months 6–16. Effectively a heavy part-time commitment; the program is intentionally evening/weekend-built so students can keep working.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Why this is the strongest "all-in" option</strong> — Wisconsin's technical-college pricing is among the lowest in the region, the Superior campus is a 10-minute drive from downtown Duluth, and you can ladder EMT → AEMT → Paramedic Technician → Bachelor's (transfer to UW-Stout) all through a single institution. Financial aid available for the AAS; potential WAI-2 grant support for short-term programs.
+    </div>
+  </div>
+</article>
+
+<!-- PROGRAM 5 — Minnesota North -->
+<article class="program" id="mn-north">
+  <div class="left">
+    <span class="num">05</span>
+    <h3>Minnesota North College</h3>
+    <div class="school-meta">Mesabi Range Eveleth · Vermilion (Ely) · Itasca (Grand Rapids) · Hibbing — 50–80 miles north of Duluth</div>
+    <div class="offers">
+      <span class="badge b-emt">EMT-Basic</span>
+      <span class="badge b-no">No Paramedic</span>
+    </div>
+  </div>
+  <div class="right prose">
+    <p>Worth knowing about if you live north of Duluth on the Iron Range, or if you're already commuting to one of these towns for work. <a href="https://minnesotanorth.edu/programs/emergency-medical-technician/" target="_blank">Minnesota North College</a> is the merged identity of five former community colleges (Hibbing, Itasca, Mesabi Range, Rainy River, Vermilion). It runs an 8-credit EMT course at multiple campuses, and offers an EMT bridge for already-certified Emergency Medical Responders at the Vermilion (Ely) campus.</p>
+
+    <div class="detail-grid">
+      <div class="item"><div class="lab">Credential</div><div class="val">Certificate-eligible<small>EMT course can stand alone or feed into a campus certificate</small></div></div>
+      <div class="item"><div class="lab">Length</div><div class="val">One semester<small>8-credit course, fall or spring depending on campus</small></div></div>
+      <div class="item"><div class="lab">Approx. Cost</div><div class="val">~$1,600<small>At MN State 2-year tuition rate, ~$200/credit including fees</small></div></div>
+      <div class="item"><div class="lab">Best For</div><div class="val">Iron Range residents<small>Mesabi Eveleth is ~62 mi from Duluth; Vermilion-Ely is ~110 mi</small></div></div>
+    </div>
+
+    <h4>What's offered where</h4>
+    <ul>
+      <li><strong>Mesabi Range — Eveleth Campus</strong> — 8-credit EMT course, fall semester</li>
+      <li><strong>Itasca Campus (Grand Rapids)</strong> — 8-credit EMT course, spring semester</li>
+      <li><strong>Vermilion Campus (Ely)</strong> — 8-credit EMT course; also a bridge program for existing EMR holders</li>
+      <li>A separate <strong>Fireline EMT</strong> certificate combines EMR + EMT with wildland fire training, search &amp; rescue, and wilderness survival — relevant for forestry and incident-management careers</li>
+    </ul>
+
+    <h4>Typical weekly load</h4>
+    <p>Standard 8-credit MN EMT course delivery — two evenings per week of lecture and lab (~8–10 contact hours), plus separately scheduled clinical ride-alongs. Expect 12–15 total hours weekly when study time and clinicals are included.</p>
+
+    <div class="callout">
+      <strong>Reality check</strong> — none of the Minnesota North campuses currently offers Paramedic training. If you want the full ladder, you'll still need to feed into Mayo (Duluth satellite) or Northwood Tech (Superior) afterward.
+    </div>
+  </div>
+</article>
+
+</div>
+
+<!-- CAREER PATH ROADMAP -->
+<section class="roadmap" id="path">
+<div class="container">
+  <div class="section-head" style="margin:0;padding:0">
+    <div class="kicker">The Pathway</div>
+    <h2>From bystander to <em>paramedic</em> — a Duluth-area roadmap.</h2>
+    <p class="sub">EMS credentials stack. You can stop at any rung. But each rung up requires the one beneath it to be current and in good standing.</p>
+  </div>
+  <div class="path-grid">
+    <div class="path-card">
+      <div class="step">Step One · ~16 weeks</div>
+      <h4>EMT-Basic</h4>
+      <p>Pick from LSC, Mayo Ambulance, Northwood Tech (Superior), or a Minnesota North campus. Cost: $1,100–$2,200. Pass the NREMT cognitive and psychomotor exams. Apply for your MN or WI state EMT license. You can now work on an ambulance.</p>
+    </div>
+    <div class="path-card">
+      <div class="step">Optional · ~232 hours</div>
+      <h4>Advanced EMT</h4>
+      <p>Only available locally through Northwood Tech (typically Rice Lake / New Richmond). Adds IV access, medication administration, and expanded patient assessment. Useful in Wisconsin services; less common in Minnesota.</p>
+    </div>
+    <div class="path-card">
+      <div class="step">Step Two · 16–20 months</div>
+      <h4>Paramedic</h4>
+      <p>Two real options: Mayo Clinic (Duluth satellite — 20 months, $12,600, August start, January–April application window) or Northwood Tech (Superior-accessible via online lectures, 16 months, ~$5,000, evening &amp; weekend schedule). Both require a current EMT license to start.</p>
+    </div>
+    <div class="path-card">
+      <div class="step">Beyond · Bachelor's</div>
+      <h4>Paramedic AAS &amp; B.S.</h4>
+      <p>Northwood Tech offers a 67-credit Paramedic Technician AAS that includes the EMT-Paramedic diploma plus general education. Articulation agreements with UW-Stout (B.S. in Career, Technical Education &amp; Training, 100% online) for those who want to teach or move into EMS leadership.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PREREQS -->
+<div class="section-head" id="prereqs">
+  <div class="kicker">Before You Apply Anywhere</div>
+  <h2>The universal <em>pre-flight checklist.</em></h2>
+  <p class="sub">Every program in this guide expects roughly the same baseline. Hit these and you'll move through admissions without surprises.</p>
+</div>
+
+<div class="container">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:80px">
+
+  <div style="border:1px solid var(--rule);padding:28px;background:var(--paper-2)">
+    <h4 class="serif" style="font-style:italic;color:var(--rust-deep);margin-bottom:14px;font-size:1.3rem;font-weight:500">For EMT-Basic</h4>
+    <ul style="list-style:none;font-size:0.92rem">
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>Age 16–17 minimum</strong> to enroll (varies by school); 18 to certify</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>HS diploma not always required</strong> at enrollment, but is for licensure</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>Background check</strong> — MN uses NetStudy / EMSRB; WI uses Caregiver Background Check</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>Felony-free record</strong> required for national certification</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>BLS CPR certification</strong> — usually scheduled within the program</li>
+      <li style="padding:8px 0">▸ <strong>Basic physical capability</strong> — patient lifting, sustained activity</li>
+    </ul>
+  </div>
+
+  <div style="border:1px solid var(--rule);padding:28px;background:var(--paper-2)">
+    <h4 class="serif" style="font-style:italic;color:var(--rust-deep);margin-bottom:14px;font-size:1.3rem;font-weight:500">For Paramedic</h4>
+    <ul style="list-style:none;font-size:0.92rem">
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>HS diploma or GED</strong> — required at application</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>Age 18+</strong> by program start</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>Current NREMT EMT-Basic certification</strong> — non-negotiable</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>State EMT license</strong> (MN EMSRB or WI DHS) — also non-negotiable</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>AHA BLS provider card</strong> (current)</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>Valid driver's license</strong></li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>U.S. citizen / permanent resident</strong> (Mayo specifically — no visa sponsorship)</li>
+      <li style="padding:8px 0">▸ <strong>One college-level course</strong> for first-time college students (Medical Terminology recommended)</li>
+    </ul>
+  </div>
+
+  <div style="border:1px solid var(--rule);padding:28px;background:var(--paper-2)">
+    <h4 class="serif" style="font-style:italic;color:var(--rust-deep);margin-bottom:14px;font-size:1.3rem;font-weight:500">Money Help</h4>
+    <ul style="list-style:none;font-size:0.92rem">
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>MN Paramedic Scholarship</strong> — $5,000/year, renewable once. Open to MN residents enrolled in eligible MN paramedic programs (Mayo qualifies). Apply through the MN Office of Higher Education.</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>FAFSA / federal aid</strong> — applies to LSC, Northwood Tech AAS programs, MN North</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>WAI-2 grant</strong> — Northwest Wisconsin Workforce Investment Board funding for short-term tech-college programs</li>
+      <li style="padding:8px 0;border-bottom:1px dotted var(--rule)">▸ <strong>Mayo employee tuition assistance</strong> — institutional support for Mayo Clinic employees pursuing the Paramedic program</li>
+      <li style="padding:8px 0">▸ <strong>Mayo's EMT-in-Training program</strong> — paid as employee; tuition, books, and laptop covered</li>
+    </ul>
+  </div>
+
+</div>
+</div>
+
+<!-- LICENSURE NOTE -->
+<div class="container">
+<div style="background:var(--ink);color:var(--paper);padding:40px 32px;margin-bottom:80px">
+  <div style="font-family:'Fraunces',serif;font-style:italic;font-size:0.9rem;color:var(--gold);letter-spacing:0.05em;margin-bottom:14px">A note on licensure</div>
+  <p style="font-size:1rem;max-width:920px;line-height:1.6;margin-bottom:14px">
+    Whichever school you pick in this region, the certification process is the same: complete the course → pass the <strong>National Registry of EMTs (NREMT)</strong> cognitive exam → pass the NREMT psychomotor (skills) exam → apply for your state license through the <strong>Minnesota EMSRB</strong> (mn.gov/oems) or the <strong>Wisconsin Department of Health Services</strong> EMS Section. National Registry status alone does not let you work — you need state licensure on top.
+  </p>
+  <p style="font-size:0.9rem;max-width:920px;opacity:0.8">
+    Wisconsin and Minnesota offer reasonable reciprocity, so an EMT trained at Northwood Tech can work in Duluth, and an LSC graduate can work in Superior — but each transition requires a separate state license application.
+  </p>
+</div>
+</div>
+
+<footer>
+  <div class="container">
+    <div>
+      <h5>Sources &amp; further reading</h5>
+      <ul>
+        <li>lsc.edu/degrees/emergency-medical-technician-certificate</li>
+        <li>college.mayo.edu — Emergency Medicine Paramedic Program</li>
+        <li>mayoclinic.org/ambulance-service/emergency-medical-services-training</li>
+        <li>northwoodtech.edu — EMT, AEMT, Paramedic Technician programs</li>
+        <li>minnesotanorth.edu/programs/emergency-medical-technician</li>
+        <li>mn.gov/oems — Minnesota EMSRB</li>
+        <li>dhs.wisconsin.gov/ems/training/centers.htm</li>
+        <li>ohe.mn.gov/grant-scholarship/minnesota-paramedic-scholarship</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Direct contacts</h5>
+      <ul>
+        <li><strong>LSC Student Services</strong> — (218) 733-7601 · 2101 Trinity Rd, Duluth</li>
+        <li><strong>Mayo Paramedic Program</strong> — apply via college.mayo.edu portal · Jan 1–Apr 29 window</li>
+        <li><strong>Mayo Ambulance Education</strong> — AMBSVCEducation@mayo.edu · 507-538-7159</li>
+        <li><strong>Northwood Tech (Superior)</strong> — 600 N 21st St, Superior WI · admissions advisors at northwoodtech.edu</li>
+        <li><strong>Minnesota North</strong> — Customized Training: (218) 293-6920 · cts@minnesotanorth.edu</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="colophon">
+      Compiled May 2026 · Tuition figures are approximate and subject to change · Confirm current details directly with each program before applying
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
